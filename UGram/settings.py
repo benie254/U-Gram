@@ -81,6 +81,7 @@ INSTALLED_APPS = [
     'dal_select2',
     'columns',
     'cloudinary',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
