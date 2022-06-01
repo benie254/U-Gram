@@ -9,7 +9,7 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="{% url 'newsToday' %}">The Moringa Tribune</a>
+      <a class="navbar-brand" href="{% url 'newsToday' %}">U-Gram</a>
     </div>
 
     <div class="col-sm-6 col-md-6 navbar-right">
@@ -31,18 +31,18 @@
       {%if user.is_authenticated%}
       <ul>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expand="false">
+          <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">
             Account
             <span class="caret"></span>
           </a>
           <ul>
             <li>
-              <a href="{%url 'newsToday'%}">
+              <a href="{%url 'galleries'%}">
                 Home
               </a>
             </li>
             <li>
-              <a href="{%url 'newArticle'%}">
+              <a href="{%url 'newImage'%}">
                 Create Article
               </a>
             </li>
