@@ -4,7 +4,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404,HttpResponseRedirect
 import datetime as dt
 from .models import Image,Follower
-from pool.forms import ImageForm
+from pool.forms import ImageForm,FollowerForm
 from .email import send_email
 
 
