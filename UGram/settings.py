@@ -31,12 +31,20 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'pool',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'bootstrap5',
+    'location_field.apps.DefaultConfig',
+    'dal',
+    'dal_select2',
+    'columns',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
