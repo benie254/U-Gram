@@ -11,7 +11,8 @@ urlpatterns = [
     path('search/tag/',views.tag_results,name='tag_results'),
     path('search/category/',views.category_results,name='category_results'),
     path('search/location/',views.location_results,name='location_results'),
-    url(r'^image/(\d+)/$',views.image,name='image')
+    url(r'^image/(\d+)/$',views.image,name='image'),
+    path('gallery/image',views.new_image,name='newImage')
 ]
 
 if settings.DEBUG:
