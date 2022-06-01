@@ -1,10 +1,226 @@
-<!DOCTYPE html>
-<html lang="en">
+{%load bootstrap5%}
+{%load static%}
+{%load columns%}
+
+
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+
+    {%if title%}
+    <title>
+        meRar - {{title}}
+    </title>
+    {%else%}
+    <title>
+        meRar
+    </title>
+    {%endif%}
+
+    {%block styles%}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        {%bootstrap_css%}
+        <link rel="stylesheet" href="{%static 'css/basegallery.css'%}">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+    {%endblock%}
+
+
+
+
+
+    <style>
+.modal-target {
+  width: 75%;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.modal-target:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 50%;
+  opacity: 1 !important;
+  max-width: 50%;
+}
+
+/* Caption of Modal Image */
+.modal-caption {
+  margin: auto;
+  display: block;
+  text-align: center;
+  color: white;
+  margin-top: 16;
+}
+
+/* Add Animation */
+.modal-content, .modal-caption {
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-atransform:scale(0)}
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+</style>
+
+
+    <script src="[ link to jquery.js goes here ]"></script>
+
+    {{form.media}}
 </head>
+
 <body>
+{%include 'navbar.html'%}
+{%block content%}
+
+<!--<h1 class="text-center">-->
+<!--    Galleries for {{date|date:"l d-F Y"}}-->
+<!--</h1>-->
+
+<h1 class="text-center">
+    Gallery Pool
+</h1>
+
+{%endblock%}
+
+{%block scripts%}
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+    <script src="{%static 'js/basegallery.js'%}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    {%bootstrap_javascript%}
+<script>
+function getURL() {
+document.getElementById("url").innerHTML = window.location.href;
+document.getElementById("urlbtn").innerHTML = "Copy link";
+}
+<!--document.write()-->
+
+
+
+
+function copyToClipboard(element) {
+  var $temp = $("<input>");
+  $("body").append($temp);
+  $temp.val($(element).text()).select();
+  document.execCommand("copy");
+  $temp.remove();
+
+}
+
+$( function() {
+    var availableTags = [
+      "food","health","short","entertainment","trip","fun","weekend","getaway","away","alive","zip","halo","juice","nature","manga","gaming",
+    ];
+    $( "#ttags" ).autocomplete({
+      source: availableTags
+    });
+  } );
+
+  $( function() {
+    var availableTags = [
+      "Entertainment",
+      "Food",
+    ];
+    $( "#ctags" ).autocomplete({
+      source: availableTags
+    });
+  } );
+
+  function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+$( function() {
+    var availableTags = [
+      "Nairobi",
+      "Kisumu",
+      "mbagathi",
+    ];
+    $( "#ltags" ).autocomplete({
+      source: availableTags
+    });
+  } );
+
+  function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+
+// Modal Setup
+var modal = document.getElementById('modal');
+
+var modalClose = document.getElementById('modal-close');
+modalClose.addEventListener('click', function() {
+  modal.style.display = "none";
+});
+
+// global handler
+document.addEventListener('click', function (e) {
+  if (e.target.className.indexOf('modal-target') !== -1) {
+      var img = e.target;
+      var modalImg = document.getElementById("modal-content");
+      var captionText = document.getElementById("modal-caption");
+      modal.style.display = "block";
+      modalImg.src = img.src;
+      captionText.innerHTML = img.alt;
+   }
+});
+
+
+  </script>
+{%endblock%}
 
 </body>
 </html>
