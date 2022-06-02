@@ -7,15 +7,25 @@
 {% block content %}
 {{block.super}}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
 <body>
 
+<div class="container">
+    <div class="wrapper status-wrapper">
+        <div class="col lef-col">
+            <div class="card status-card">
+                <div class="card-img profile-photo">
+                    <img src="{%static '' %}" alt="profile-photo">
+                </div>
+                <p class="card-text username">
+                    {{}}
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 </body>
-</html>
+
 
 {%endblock%}
