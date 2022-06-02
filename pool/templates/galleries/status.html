@@ -9,20 +9,21 @@
 
 <body>
 
-<div class="container">
+<div class="container status-container">
     <div class="wrapper status-wrapper">
-        <div class="col lef-col">
-            <div class="card status-card">
-                <div class="card-img profile-photo">
-                    <img src="{%static '' %}" alt="profile-photo">
+        <div class="col lef-col status-col">
+            <div class="wrapper user-wrapper">
+                <div class="card status-card user-card">
+                    <div class="card-img profile-photo">
+                        <img src="{%static '' %}" alt="profile-photo">
+                    </div>
+                    <p class="card-text username">
+                        {{}}
+                    </p>
                 </div>
-                <p class="card-text username">
-                    {{}}
-                </p>
             </div>
         </div>
     </div>
-
 </div>
 
 </body>
