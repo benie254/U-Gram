@@ -16,7 +16,29 @@
 </head>
 
 <body>
-{%include 'navbar.html'%}
+{%block nav%}
+<nav class="nav navbar navbar-inverse navbar-nav">
+  <div class="nav nav-wrapper navbar-wrap container-fluid">
+    <img src="" class="navbar-brand" alt="">
+      <div class="input-group">
+          <input type="text" class="form-control navbar-search" placeholder="Search" name="image">
+          <div class="input-group-btn">
+              <button class="btn btn-default" type="submit">
+                  <i class="glyphicon glyphicon-search"></i>
+              </button>
+          </div>
+      </div>
+      <div class="nav-items">
+          <img src="{%static '' %}" class="nav-icon" alt="home-icon">
+          <img src="{%static '' %}" class="nav-icon" alt="messenger-icon">
+          <img src="{%static '' %}" class="nav-icon" alt="add-icon">
+          <img src="{%static '' %}" class="nav-icon" alt="explore-icon">
+          <img src="{%static '' %}" class="nav-icon" alt="like-icon">
+          <div class="nav-icon profile-icon" style=""></div>
+    </div>
+  </div>
+</nav>
+{%endblock%}
 
 {%block content%}
 {%endblock%}
