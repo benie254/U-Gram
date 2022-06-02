@@ -56,15 +56,15 @@ background:;
 color:rgba(0,0,0,0.5);
 }
 
-/*nav icons*/
+nav icons
 .nav-items{
 position:relative;
 height:20px;
 }
 .nav-icon{
 display:inline-block;
-margin:0 10px;
-height:100%;
+/*margin:0 10px;*/
+/*height:100%;*/
 cursor:pointer;
 }
 .profile-icon{
