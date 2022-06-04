@@ -11,9 +11,46 @@
     {%endblock%}
 
 
-{% block content %}
+{% block posts %}
 
-<div class="">
+<div class="posts">
+        <div class="user-posts">
+                <div class="user-info">
+                        <div class="p-photo">
+                                <img src="{%static '' %}" alt="profile-photo">
+                                <p class="user-name">
+
+                                </p>
+                        </div>
+                </div>
+                <img src="{%static '' %}" class="options-icon" alt="image">
+        </div>
+        <img src="{%static '' %}" class="post-image" alt="post-image">
+        <div class="post-info">
+                <div class="user-action">
+                        <img src="{%static '' %}" class="action-icon" alt="icon-like">
+                        <img src="{%static '' %}" class="action-icon" alt="icon-comment">
+                        <img src="{%static '' %}" class="action-icon" alt="icon-send">
+                        <img src="{%static '' %}" class="action-icon" alt="icon-save">
+                </div>
+                <p class="post-likes"></p>
+                <p class="post-description">
+                        <span>
+                                {{userame}}
+                        </span>
+
+                </p>
+                <p class="post-time">
+
+                </p>
+        </div>
+        <div class="post-comments">
+                <img src="{%static '' %}" class="comment-icon" alt="comment-icon">
+                <input type="text" class="comment-box" placeholder="Share a comment">
+                <button class="btn comment-button">
+                        Comment
+                </button>
+        </div>
 
 </div>
 
