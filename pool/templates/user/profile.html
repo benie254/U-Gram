@@ -1,4 +1,16 @@
 {%extends 'galleries/base.html'%}
 {%block content%}
 <h1>Welcome to your profile page!</h1>
+
+<section class="profile-main">
+    <main class="main user-profile-main">
+        <div class="user-profile-container">
+            <header class="profile header">
+                {%include 'user/profile_photo.html'%}
+                {%include 'user/profile_details.html%}
+            </header>
+        </div>
+    </main>
+
+</section>
 {%endblock%}

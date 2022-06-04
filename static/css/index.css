@@ -300,3 +300,123 @@ font-size:14px;
 .nav-icon{margin:0 5px;}
 .post-image{height:300px;}
 }
+
+/*profile section*/
+.profile-main{
+position:relative;
+display:flex;
+flex-direction:column;
+flex-grow:1;
+flex-shrink:0;
+border:0;
+margin:0;
+padding:0;
+vertical-align:baseline;
+min-height:100vh;
+overflow:hidden;
+align-items:stretch;
+}
+.user-profile-main{
+order:4;
+border:0 solid black;
+box-sizing:border-box;
+}
+.user-profile-container{
+padding:30px;
+width:calc(100% - 40px);
+margin-bottom:0;
+margin:0 auto 30px;
+max-width:935px;
+}
+.profile-header{
+margin-bottom:44px;
+flex-direction:row;
+}
+
+/*profile photo*/
+@media (min-width: 736px){
+.profile-photo-card{
+flex-basis:0px;
+flex-grow:1;
+margin-right:30px;
+}
+}
+.profile-photo-card{
+flex-shrink:0;
+}
+.cuser-profile-photo{
+height:calc(148px + 2px);
+width:150px;
+display:block;
+margin-left:auto;
+margin-right:auto;
+}
+cuser-photo{
+border-radius:50%;
+box-sizing:border-box;
+background-color:;
+height:100%;
+margin:0 auto;
+overflow:hidden;
+position:relative;
+width:100%;
+}
+button{
+border:0;
+cursor:pointer;
+height:100%;
+padding:0;
+width:100%;
+margin:0;
+appearance:auto;
+writing-mode:horizontal-tb !important;
+text-rendering:auto;
+letter-spacing:normal;
+word-spacing:normal;
+text-transform:none;
+text-indent:0px;
+text-shadow:none;
+display:inline-block;
+text-align:center;
+align-items:flex-start;
+background-color:buttonface;
+}
+cuser-p-photo{
+height:100%;
+left:0;
+position:absolute;
+top:0;
+width:100%;
+cursor:pointer;
+}
+
+/*profile details*/
+.cuser-profile-details{
+flex-basis:30px;
+flex-grow:2;
+flex-shrink:1;
+min-width:0;
+}
+@media (min-width:736px){
+.cuser-name-edit{margin-bottom:20px;}
+}
+.cuser-name-edit{
+align-items:center;
+flex-direction:row;
+flex-shrink:1;
+min-width:0;
+}
+.cuser-account-details{
+margin-bottom:20px;
+display:flex;
+flex-direction:row;
+list-style:none;
+}
+.cuser-details-edit{
+display:block;
+align-items:stretch;
+flex-direction:column;
+flex-shrink:0;
+box-sizing:border-box;
+position:relative;
+}
