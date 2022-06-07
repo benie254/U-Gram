@@ -300,8 +300,8 @@ font-size:14px;
 .nav-icon{margin:0 5px;}
 .post-image{height:300px;}
 }
-
-/*profile section*/
+/*
+*//*profile section*//*
 .profile-main{
 position:relative;
 display:flex;
@@ -333,7 +333,7 @@ margin-bottom:44px;
 flex-direction:row;
 }
 
-/*profile photo*/
+*//*profile photo*//*
 @media (min-width: 736px){
 .profile-photo-card{
 flex-basis:0px;
@@ -390,7 +390,7 @@ width:100%;
 cursor:pointer;
 }
 
-/*profile details*/
+*//*profile details*//*
 .cuser-profile-details{
 flex-basis:30px;
 flex-grow:2;
@@ -419,4 +419,37 @@ flex-direction:column;
 flex-shrink:0;
 box-sizing:border-box;
 position:relative;
+}
+
+.profile-main{
+flex-shrink:1;
+min-width:0;
+}*/
+/*.cuser-name-edit{
+align-items:center;
+flex-direction:row;
+flex-shrink:1;
+min-width:0;
+}
+.cuser-name-text{
+margin:-5px 0 -6px;
+}
+.cuser-account-details{
+margin-left:calc(var(--base-unit) * 5);
+flex:0 1 auto;
+justify-content:flex-start;
+flex-direction:row;
+align-items:stretch;
+align-content:stretch;
+display:flex;
+}*/
+.cuser-options{
+width:5px;
+}
+.cuser-details-edit{
+margin-top:2.5%;
+}
+
+placeholder{
+color:red;
 }

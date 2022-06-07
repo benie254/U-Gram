@@ -1,15 +1,26 @@
 {%extends 'galleries/base.html'%}
 {%block content%}
-<h1>Welcome to your profile page!</h1>
+
 
 <section class="profile-main">
     <main class="main user-profile-main">
         <div class="user-profile-container">
-            <header class="profile header">
+            <div class="row">
+                <div class="col-sm-3">
+                    <header class="profile header">
                 {%include 'user/profile_photo.html'%}
+
+            </header>
+                </div>
+                <div class="col-md-6">
+                    <header class="profile header">
                 {%include 'user/profile_details.html'%}
             </header>
-            {%include 'user/featured.html'%}
+                </div>
+                <div class="col-sm-3"></div>
+
+            </div>
+
             {%include 'user/tab.html'%}
             {%include 'user/profile_posts.html'%}
         </div>
