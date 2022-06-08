@@ -12,7 +12,11 @@ urlpatterns = [
     path('search/category/',views.category_results,name='category_results'),
     path('search/location/',views.location_results,name='location_results'),
     url(r'^image/(\d+)/$',views.image,name='image'),
-    path('gallery/image',views.new_image,name='newImage')
+    url(r'^accounts/profile/(\d+)/$', views.user_images,name='userImages'),
+    # url(r'^user/(\d+)/$',views.user_images,name='userImages'),
+    path('gallery/image',views.new_image,name='newImage'),
+    url(r'^gallery/feed/(\d+)/$',views.user_feed,name='feed'),
+    path('search/term/',views.search_results,name='search_results')
 ]
 
 if settings.DEBUG:

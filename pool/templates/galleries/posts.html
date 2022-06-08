@@ -1,3 +1,4 @@
+
 {%load columns%}
 {%load bootstrap5%}
 {%load static%}
@@ -13,45 +14,51 @@
 
 {% block posts %}
 
-<div class="posts">
+
+
+{%for image in galleries%}
+{%if user.is_authenticated%}
+<div class="posts container" style="background-color:white;">
         <div class="user-posts">
+
                 <div class="user-info">
                         <div class="p-photo">
-                                <img src="{%static '' %}" alt="profile-photo" class="p-photo-self">
                                 <p class="user-name">
-
+                                        {{image.editor}}
                                 </p>
                         </div>
                 </div>
-                <img src="{%static '' %}" class="options-icon" alt="image">
         </div>
-        <img src="{%static '' %}" class="post-image" alt="post-image">
+        <img src="{{image.pic.url}}" class="post-image img-responsive" alt="{{image.description}}" id="Img 1" width="350" style="min-height:250;" height="auto">
+        <div id="modal" class="modal">
+                <span id="modal-close" class="modal-close">&times;</span>
+                <img id="modal-content" class="modal-content">
+                <div id="modal-caption" class="modal-caption"></div>
+        </div>
         <div class="post-info">
-                <div class="user-action">
-                        <img src="{%static '' %}" class="action-icon" alt="icon-like">
-                        <img src="{%static '' %}" class="action-icon" alt="icon-comment">
-                        <img src="{%static '' %}" class="action-icon" alt="icon-send">
-                        <img src="{%static '' %}" class="action-icon icon-save" alt="icon-save">
-                </div>
-                <p class="post-likes"></p>
+                <p class="post-likes">
+                        <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+                </p>
                 <p class="post-description">
-                        <span>
-                                {{userame}}
-                        </span>
-
+                        <span>{{image.description}}</span>
+                        <a href="{% url 'image' image.id %}">Full view</a>
                 </p>
                 <p class="post-time">
-
+                        {{image.published|timesince}}
                 </p>
         </div>
-        <div class="post-comments">
-                <img src="{%static '' %}" class="comment-icon" alt="comment-icon">
-                <input type="text" class="comment-box" placeholder="Share a comment">
-                <button class="btn comment-button">
+        <form class="post-comments" method="post" action="{%url 'newImage'%}" enctype="multipart/form-data">
+                <input type="text" class="comment-box" placeholder="Share a comment" name="comment">
+                <button class="btn comment-button" type="submit" value="comment">
                         Comment
                 </button>
-        </div>
+        </form>
+<script>
 
+</script>
 </div>
+{%endif%}
+{%endfor%}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
 
 {%endblock%}

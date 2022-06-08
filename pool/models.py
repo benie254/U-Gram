@@ -22,7 +22,7 @@ from tinymce.models import HTMLField
 #
 #     class Meta:
 #         ordering = ['first_name']
-#
+
 
 
 class tag(models.Model):
@@ -67,16 +67,34 @@ class Location(models.Model):
     def update_location(self):
         Location.objects.filter(location=self).update(location=self.location)
 
+class PPhoto(models.Model):
+    p_pic = CloudinaryField('image', null=True)
+    editor = models.ForeignKey(User, on_delete=models.DO_NOTHING, null=True)
+
+class Follower(models.Model):
+    follower = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.follower
+
+    def save_follower(self):
+        self.save()
+
+class Comment(models.Model):
+    comment = HTMLField()
 
 class Image(models.Model):
     pic = CloudinaryField('image')
-    title = models.CharField(max_length=60)
+    title = models.CharField(max_length=60,null=True)
     description = HTMLField()
-    editor = models.ForeignKey(User,on_delete=models.DO_NOTHING)
+    editor = models.ForeignKey(User,on_delete=models.DO_NOTHING,null=True)
     tag = models.ManyToManyField(tag)
-    category = models.ForeignKey(Category,on_delete=models.DO_NOTHING)
+    follower = models.ManyToManyField(Follower,null=True)
+    category = models.ForeignKey(Category,on_delete=models.DO_NOTHING,null=True)
     location = models.ForeignKey(Location, on_delete=models.DO_NOTHING, null=True)
     published = models.DateTimeField(auto_now_add=True)
+    comment = models.ManyToManyField(Comment,null=True)
+    like = models.ManyToManyField(User, blank=True, related_name="votes")
 
     @classmethod
     def galleries(cls):
@@ -112,6 +130,11 @@ class Image(models.Model):
         return gallery
 
     @classmethod
+    def search_by_term(cls, search_term):
+        gallery = cls.objects.filter(description__icontains=search_term)
+        return gallery
+
+    @classmethod
     def search_by_location(cls, location_term):
         gallery = cls.objects.filter(location__location=location_term)
         return gallery
@@ -131,6 +154,4 @@ class Image(models.Model):
         updated_image = Image.objects.filter(pic=self.id).update(pic=self.pic,title=self.title,description=self.description,editor=self.editor,category=self.category,location=self.location)
 
 
-class Follower(models.Model):
-    name = models.CharField(max_length=30)
-    email = models.EmailField()
+

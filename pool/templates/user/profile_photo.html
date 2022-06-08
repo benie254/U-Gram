@@ -1,16 +1,24 @@
 {%load static%}
+{%load bootstrap4%}
+{% load crispy_forms_tags %}
+
 
 {%block profile_photo%}
 <div class="profile-photo-card">
     <div class="cuser-profile-photo">
         <div class="cuser-photo">
+
             <button class="cuser-profile-button" title="Change profile photo">
-                <img src="{%static 'photos/' %}" alt="Change profile photo" class="cuser-p-photo">
+                <img src="{{pphoto.p_pic.url}}" alt="Change profile photo" class="cuser-p-photo">
             </button>
             <div>
-                <form enctype="multipart/form-data" method="POST" role="presentation">
-                    <input accept="image/jpeg,image/png" class="profile-photo-update" type="file">
+
+                <form method="post" action="{% url 'userImages' user.id %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ pform|crispy }}
+                    <button type="submit" class="btn btn-lg btn-success" value="Post"></button>
                 </form>
+
             </div>
         </div>
     </div>

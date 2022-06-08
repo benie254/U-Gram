@@ -453,3 +453,116 @@ margin-top:2.5%;
 placeholder{
 color:red;
 }
+
+.accordion {
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+.panel {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+}
+
+
+* {
+    list-style: none;
+    text-decoration: none;
+
+}
+.center {
+    /*position: absolute;*/
+    transform: translate(-50%, -50%);
+}
+.menu {
+    width: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.item {
+    border-top: 1px solid #000;
+    overflow: hidden;
+    background: #C28C2E;
+    color: #222220;
+}
+.btnp {
+    display: block;
+    padding: 6px 10px;
+    background: #C28C2E;
+    color: #222220;
+   /* position: relative;*/
+    font-weight: bold;
+}
+
+.btnp:before {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: #C28C2E;
+    left: 20px;
+    bottom: -7px;
+    transform: rotate(45deg);
+}
+
+.btnp i {
+    margin-right: 10px;
+}
+
+.smenu {
+    background: #222220;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+}
+
+.smenu a {
+    color: #C28C2E;
+    display: block;
+    padding: 16px 26px;
+    font-size: 14px;
+    margin: 4px 0;
+    position: relative;
+}
+
+.smenu a:before {
+    content: "";
+    width: 5px;
+    height: 50%;
+   /* position: absolute;*/
+    background: #C28C2E;
+    left: 0;
+    top: 0;
+    transition: 0.3s;
+    opacity: 0;
+}
+
+.smenu a:hover::before {
+    opacity: 1;
+}
+
+/*#profile:hover .smenu {
+    max-height: 100%;
+}*/
+
+.item:target .smenu {
+    max-height: 6em;
+}
+
+
+.fa {
+    cursor: pointer;
+    user-select: none;
+    padding-left: 25%;
+}
+.fa:hover {
+    color: #B5D6B2;
+}

@@ -1,24 +1,65 @@
 {%extends 'galleries/base.html'%}
+{%load static%}
+{%load bootstrap5%}
+{%load bootstrap4%}
+{% load crispy_forms_tags %}
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
+
+
 {%block content%}
 
+<body style="background-color:rgb(250,250,250);">
 
-<section class="profile-main">
+</body>
+<div class="container">
+   <section class="profile-main" style="margin-top:5%;">
     <main class="main user-profile-main">
         <div class="user-profile-container">
             <div class="row">
                 <div class="col-sm-3">
-                    <header class="profile header">
-                {%include 'user/profile_photo.html'%}
+                    <header class="profile header" style="float:right;">
+                        {%if pphoto%}
+                        <div>
+                            <img src="{{pphoto.p_pic.url}}" alt="Change profile photo" class="cuser-p-photo img-responsive" width="150" height="150" style="border-radius:50%;">
+                        </div>
+                        <div class="center" style="margin-top:15%;margin-left:35%;">
+                            <div class="menu">
+                                <li class="item" id="profile">
+                                    <a href="#profile" class="btn btnp"><i class="far fa-user" aria-hidden="true"></i> Update profile</a>
+                                    <div class="smenu">
+                                        <form method="post" action="{% url 'userImages' user.id %}" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            {{ pform|crispy }}
+                                            <button type="submit" class="btn btn-sm btn-outline-success" value="Post">Update</button>
+                                        </form>
+                                    </div>
+                                </li>
+                            </div>
+                        </div>
 
-            </header>
+                        {%else%}
+
+                        {%block profile_photo%}
+                         <form method="post" action="{% url 'userImages' user.id %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ pform|crispy }}
+                            <button type="submit" class="btn btn-lg btn-success" value="Post">Update Profile Photo</button>
+                        </form>
+                        {%endblock%}
+                        {%endif%}
+
+                    </header>
                 </div>
+
                 <div class="col-md-6">
                     <header class="profile header">
-                {%include 'user/profile_details.html'%}
-            </header>
+                        {%include 'user/profile_details.html'%}
+                    </header>
                 </div>
-                <div class="col-sm-3"></div>
 
+                <div class="col-sm-3"></div>
             </div>
 
             {%include 'user/tab.html'%}
@@ -27,4 +68,25 @@
     </main>
 
 </section>
+</div>
+
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
 {%endblock%}

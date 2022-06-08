@@ -18,6 +18,7 @@ from decouple import config
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+from crispy_forms_foundation.settings import *
 
 
 # MODE = config("MODE",default="dev")
@@ -82,7 +83,13 @@ INSTALLED_APPS = [
     'columns',
     'cloudinary',
     'tinymce',
+    'crispy_forms',
+    'bootstrap4',
+    'likes',
+    'secretballot',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -93,12 +100,15 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'likes.middleware.SecretBallotUserIpUseragentMiddleware',
 ]
 
 MIDDLEWARE_CLASSES = (
     # Simplified static file serving.
     # https://warehouse.python.org/project/whitenoise/
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'likes.middleware.SecretBallotUserIpUseragentMiddleware',
+    'likes.middleware.SecretBallotUserIpUseragentMiddleware',
 )
 
 ROOT_URLCONF = 'UGram.urls'
@@ -212,3 +222,8 @@ cloudinary.config(
     api_key='199658443164478',
     api_secret='BhZ_19ahIy9YPLEnmhXR4Ss8d_Y'
 )
+
+SECRETBALLOT_FOR_MODELS = {
+    "pool.image": {
+    },
+}
