@@ -70,7 +70,6 @@ cursor:pointer;
 .profile-icon{
 border-radius:50%;
 width:20px;
-background-image:url('{%static '' %}');
 background-size:cover;
 }
 
