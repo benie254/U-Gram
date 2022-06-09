@@ -48,8 +48,6 @@ else:
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
-ALLOWED_HOSTS = ['*']
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -64,7 +62,7 @@ SECRET_KEY = 'django-insecure-%!)5)5m*6qe+z9pc@st03&5q2_u4e31-9e64y8gn_x33z)05v#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -101,15 +99,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    # 'likes.middleware.SecretBallotUserIpUseragentMiddleware',
 ]
 
 MIDDLEWARE_CLASSES = (
     # Simplified static file serving.
     # https://warehouse.python.org/project/whitenoise/
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'likes.middleware.SecretBallotUserIpUseragentMiddleware',
-    'likes.middleware.SecretBallotUserIpUseragentMiddleware',
 )
 
 ROOT_URLCONF = 'UGram.urls'
@@ -228,3 +223,6 @@ SECRETBALLOT_FOR_MODELS = {
     "pool.image": {
     },
 }
+
+# Configure Django App for Heroku.
+django_heroku.settings(locals())
