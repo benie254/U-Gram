@@ -67,8 +67,9 @@ class Location(models.Model):
     def update_location(self):
         Location.objects.filter(location=self).update(location=self.location)
 
-class PPhoto(models.Model):
+class Profile(models.Model):
     p_pic = CloudinaryField('image', null=True)
+    bio = models.CharField(max_length=60,null=True)
     editor = models.ForeignKey(User, on_delete=models.DO_NOTHING, null=True)
 
 class Follower(models.Model):
@@ -151,7 +152,4 @@ class Image(models.Model):
         Image.objects.filter(id=self).delete()
 
     def update_image(self):
-        updated_image = Image.objects.filter(pic=self.id).update(pic=self.pic,title=self.title,description=self.description,editor=self.editor,category=self.category,location=self.location)
-
-
-
+        Image.objects.filter(pic=self.id).update(pic=self.pic,title=self.title,description=self.description,category=self.category,location=self.location)

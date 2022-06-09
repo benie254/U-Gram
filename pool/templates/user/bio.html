@@ -1,0 +1,32 @@
+{%extends 'galleries/base.html'%}
+
+{%load bootstrap5%}
+{%load bootstrap4%}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<body style="background-color:grey;">
+
+</body>
+<div class="container">
+
+    <div class="row rounded" style="margin-top:2.5%;background-color:rgb(250,250,250);width:auto;height:auto;max-width:80%;margin-bottom:2.5%;margin-top:5%;padding-top:1.5%;padding-bottom:1.5%;margin-left:7.5%;">
+        <h2 class="text-center" style="margin-bottom:2.5%;">Add/update your profile bio &#128515;</h2>
+        <div class="col-sm-4 col-md-4 col-lg-4"></div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <form method="post" action="{%url 'userImages' user.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ bioform|crispy }}
+    <button type="submit" class="btn btn-lg btn-outline-info btn-dark" value="Post" style="margin-top:1%;">Add</button>
+  </form>
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4"></div>
+    </div>
+
+</div>
+
+{% endblock %}

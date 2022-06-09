@@ -19,14 +19,14 @@
             <div class="row">
                 <div class="col-sm-3">
                     <header class="profile header" style="float:right;">
-                        {%if pphoto%}
+                        {%if profile.p_pic%}
                         <div>
-                            <img src="{{pphoto.p_pic.url}}" alt="Change profile photo" class="cuser-p-photo img-responsive" width="150" height="150" style="border-radius:50%;">
+                            <img src="{{profile.p_pic.url}}" alt="Change profile photo" class="cuser-p-photo img-responsive" width="150" height="150" style="border-radius:50%;">
                         </div>
                         <div class="center" style="margin-top:15%;margin-left:35%;">
                             <div class="menu">
                                 <li class="item" id="profile">
-                                    <a href="#profile" class="btn btnp"><i class="far fa-user" aria-hidden="true"></i> Update profile</a>
+                                    <a href="#profile" class="btn btnp"><i class="far fa-user" aria-hidden="true"></i> Update p-pic</a>
                                     <div class="smenu">
                                         <form method="post" action="{% url 'userImages' user.id %}" enctype="multipart/form-data">
                                             {% csrf_token %}
@@ -41,11 +41,20 @@
                         {%else%}
 
                         {%block profile_photo%}
-                         <form method="post" action="{% url 'userImages' user.id %}" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            {{ pform|crispy }}
-                            <button type="submit" class="btn btn-lg btn-success" value="Post">Update Profile Photo</button>
-                        </form>
+                         <div class="center" style="margin-top:15%;margin-left:35%;">
+                            <div class="menu">
+                                <li class="item" id="profile">
+                                    <a href="#profile" class="btn btnp"><i class="far fa-user" aria-hidden="true"></i> Add p-pic</a>
+                                    <div class="smenu">
+                                        <form method="post" action="{% url 'userImages' user.id %}" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            {{ pform|crispy }}
+                                            <button type="submit" class="btn btn-sm btn-outline-success" value="Post">Add</button>
+                                        </form>
+                                    </div>
+                                </li>
+                            </div>
+                        </div>
                         {%endblock%}
                         {%endif%}
 
@@ -69,23 +78,4 @@
 </section>
 </div>
 
-
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    /* Toggle between adding and removing the "active" class,
-    to highlight the button that controls the panel */
-    this.classList.toggle("active");
-
-    /* Toggle between hiding and showing the active panel */
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
-  });
-}
 {%endblock%}

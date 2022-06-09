@@ -6,15 +6,22 @@
 
 <div class="container">
     <div class="row" style="margin-top:2.5%;">
+        {%if images%}
         {%for col in images|columns:3%}
         <div class="col-md-4">
             {%for img in col%}
-
-            <img src="{{img.pic.url}}" class="img-responsive" width="100%" height="200" style="max-width:300;max-height:300;margin-top:2.5%;"  alt="user-post-image">
-        {{img.description}}
+                  <img src="{{img.pic.url}}" class="img-responsive" width="100%" height="200" style="max-width:300;max-height:300;margin-top:2.5%;margin-left"  alt="user-post-image">
             {%endfor%}
         </div>
         {%endfor%}
+        {%else%}
+        <div class="col-md-4" style="margin-left:35%;">
+            <div class="card">
+                <h5 class="card-title text-center">Your posts will appear here</h5>
+                <p class="card-text text-center">Why don't you <span><a href="{%url 'newImage' %}">share</a><span> something?</p>
+            </div>
+        </div>
+        {%endif%}
     </div>
 
 <!--        <div>-->

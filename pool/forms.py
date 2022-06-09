@@ -1,5 +1,5 @@
 from django import forms
-from .models import Image,Follower,PPhoto,Comment
+from .models import Image,Follower,Profile,Comment
 from cloudinary.models import CloudinaryField
 
 
@@ -12,15 +12,23 @@ class ImageForm(forms.ModelForm):
     # description = forms.EmailField(label='Email')
     class Meta:
         model = Image
-        exclude = ['editor','pub_date','tag','category','title','location','follower']
+        exclude = ['editor','pub_date','tag','category','title','location','follower','like','comment']
 
 class ProfilePhotoForm(forms.ModelForm):
 
     # pic = CloudinaryField('image')
     # description = forms.EmailField(label='Email')
     class Meta:
-        model = PPhoto
-        exclude = ['editor']
+        model = Profile
+        exclude = ['editor','bio']
+
+class BioForm(forms.ModelForm):
+
+    # pic = CloudinaryField('image')
+    # description = forms.EmailField(label='Email')
+    class Meta:
+        model = Profile
+        exclude = ['editor','p_pic']
 
 class CommentForm(forms.ModelForm):
     class Meta:

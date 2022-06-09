@@ -14,9 +14,10 @@ urlpatterns = [
     url(r'^image/(\d+)/$',views.image,name='image'),
     url(r'^accounts/profile/(\d+)/$', views.user_images,name='userImages'),
     # url(r'^user/(\d+)/$',views.user_images,name='userImages'),
-    path('gallery/image',views.new_image,name='newImage'),
+    path('add/image',views.new_image,name='newImage'),
     url(r'^gallery/feed/(\d+)/$',views.user_feed,name='feed'),
-    path('search/term/',views.search_results,name='search_results')
+    path('search/term/',views.search_results,name='search_results'),
+    url(r'^profile/(\d+)/bio/add/$',views.user_bio,name='bio'),
 ]
 
 if settings.DEBUG:

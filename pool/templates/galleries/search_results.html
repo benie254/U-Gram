@@ -26,7 +26,7 @@
             {%for col in images|columns:2%}
             <div class="col-md-4">
                 {%for image in col%}
-                <div class="card" style="max-width:100%;">
+                <div class="card" style="max-width:100%;margin-top:2.5%;">
                     <div class="card-body" style="max-width:100%;">
                         <img src="{{image.pic.url}}" class="rounded card-img img-responsive modal-target" alt="{{image.description}}" id="Img 1" style="height:200px;width:75%;margin-left:5%;">
                     </div>

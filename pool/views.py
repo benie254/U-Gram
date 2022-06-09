@@ -3,8 +3,8 @@ from django.contrib.auth import login, authenticate
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404,HttpResponseRedirect
 import datetime as dt
-from .models import Image,Follower,PPhoto
-from pool.forms import ImageForm,FollowerForm,ProfilePhotoForm,CommentForm
+from .models import Image,Follower,Profile
+from pool.forms import ImageForm,FollowerForm,ProfilePhotoForm,CommentForm,BioForm
 from .email import send_email
 
 from django.template import RequestContext
@@ -34,7 +34,8 @@ def new_image(request):
     return render(request,'user/upload.html',{"form":form})
 
 def galleries(request):
-    galleries = Image.galleries()
+    # galleries = Image.galleries()
+    galleries = Image.objects.all().order_by('-published').values()
 
     current_user = request.user
 
@@ -69,7 +70,7 @@ def galleries(request):
 
 def recommend(request,user_id):
     current_user = request.user
-    pphoto = PPhoto.objects.filter(editor_id=user_id).last()
+    pphoto = Profile.objects.filter(editor_id=user_id).last()
 
     if request.method == 'POST':
         folform = FollowerForm(request.POST)
@@ -162,7 +163,7 @@ def user_images(request,user_id):
     # editor_id = current_user
     images = Image.objects.filter(editor_id=user_id)
 
-    pphoto = PPhoto.objects.filter(editor_id=user_id).last()
+    profile = Profile.objects.filter(editor_id=user_id).last()
 
     current_user = request.user
     if request.method == 'POST':
@@ -170,19 +171,39 @@ def user_images(request,user_id):
         if pform.is_valid():
             print('valid!')
             p_pic = pform.cleaned_data['p_pic']
-            p_photo = PPhoto(p_pic=p_pic)
-            p_photo.editor = current_user
-            p_photo.save()
+            # bio = pform.cleaned_data['bio']
+            profile = Profile(p_pic=p_pic)
+            profile.editor = current_user
+            profile.save()
         return redirect('userImages',user_id)
     else:
         pform = ProfilePhotoForm()
 
-    return render(request,'user/profile.html',{"images":images,"pform":pform,"pphoto":pphoto})
+    return render(request,'user/profile.html',{"images":images,"pform":pform,"profile":profile})
+
+@login_required(login_url='/accounts/login')
+def user_bio(request,user_id):
+    current_user = request.user
+    if request.method == 'POST':
+        bioform = BioForm(request.POST)
+        if bioform.is_valid():
+            print('valid!')
+            bio = bioform.cleaned_data['bio']
+            # bio = pform.cleaned_data['bio']
+            profile = Profile(bio=bio)
+            profile.editor = current_user
+            profile.save()
+        return redirect('userImages',user_id)
+    else:
+        bioform = BioForm()
+
+    return render(request,'user/bio.html',{"bioform":bioform})
 
 
 @login_required(login_url='/accounts/login')
 def user_feed(request,follower_id):
-    galleries = Image.objects.all().order_by('-pic').values()
+    # galleries = Image.objects.all().order_by('-pic').values()
+    galleries = Image.objects.all()
 
     # editor_id = current_user
     images = Image.objects.filter(follower=follower_id)
