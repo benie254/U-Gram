@@ -31,7 +31,9 @@ def new_image(request):
     else:
         form = ImageForm()
 
-    return render(request,'user/upload.html',{"form":form})
+    title = 'Upload'
+
+    return render(request,'user/upload.html',{"form":form},{"title":title})
 
 @login_required(login_url='/accounts/register')
 def galleries(request):
@@ -65,9 +67,9 @@ def galleries(request):
     # else:
     #     form = FollowerForm()
 
+    title = 'Home'
 
-
-    return render(request,'galleries/index.html',{"galleries":galleries,"folform":folform})
+    return render(request,'galleries/index.html',{"galleries":galleries,"folform":folform,"title":title})
 
 def recommend(request,user_id):
     current_user = request.user
@@ -108,7 +110,9 @@ def image(request,image_id):
     except DoesNotExist:
         raise Http404()
 
-    return render(request,'galleries/image.html',{"image":image})
+    title = 'Image'
+
+    return render(request,'galleries/image.html',{"image":image,"title":title})
 
 
 def tag_results(request):
@@ -180,7 +184,9 @@ def user_images(request,user_id):
     else:
         pform = ProfilePhotoForm()
 
-    return render(request,'user/profile.html',{"images":images,"pform":pform,"profile":profile})
+    title = 'Profile'
+
+    return render(request,'user/profile.html',{"images":images,"pform":pform,"profile":profile,"title":title})
 
 @login_required(login_url='/accounts/login')
 def user_bio(request,user_id):
@@ -209,7 +215,9 @@ def user_feed(request,follower_id):
     # editor_id = current_user
     images = Image.objects.filter(follower=follower_id)
 
-    return render(request, 'galleries/feed.html', {"galleries": galleries})
+    title = 'Feed'
+
+    return render(request, 'galleries/feed.html', {"galleries": galleries,"title":title})
 
 
 
