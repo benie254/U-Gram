@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tapestry&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lemonada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
+
+
+
 /*all pages*/
 *{
 box-sizing:border-box;
@@ -564,4 +575,17 @@ color:red;
 }
 .fa:hover {
     color: #B5D6B2;
+}
+
+h1{
+font-family: 'Fredericka the Great';
+}
+h2,h3,h4,h5,h6{
+font-family: 'Tapestry';
+}
+a,small,i{
+font-family: 'Schoolbell';
+}
+div,p{
+font-family: 'Patrick Hand'
 }

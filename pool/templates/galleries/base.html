@@ -122,14 +122,14 @@
 
 <nav class="navbar navbar-expand-lg sticky-top" style="background-color:white;padding-top:3%;">
     <div class="container-fluid" style="margin-left:25%;padding-bottom:1.7%;">
-        <a class="navbar-brand" href="{% url 'galleries' %}">U-Gram</a>
+        <a class="navbar-brand" href="{% url 'galleries' %}" style="font-family:Tapestry;font-weight:bold;">U-Gram</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <form class="d-flex" role="search" style="margin-left:5%;" action="{%url 'search_results'%}">
                 <button style="width:15%;margin-top:2%;" class="btn btn-sm btn-outline-light" type="submit"><svg aria-label="Search" color="#8e8e8e" fill="#8e8e8e" height="16" role="img" viewBox="0 0 24 24" width="16"><path d="M19 10.5A8.5 8.5 0 1110.5 2a8.5 8.5 0 018.5 8.5z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="16.511" x2="22" y1="16.511" y2="22"></line></svg></button>
-                <input class="form-control me-2" type="search" placeholder="Search a term" aria-label="Search" name="image">
+                <input class="form-control me-2" type="search" placeholder="Search a term" aria-label="Search" name="image" style="font-family:'Lemonada';">
             </form>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left:5%;">
                 <li class="nav-item">
