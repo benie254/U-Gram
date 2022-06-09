@@ -28,5 +28,4 @@ urlpatterns = [
     # path('accounts/login/', auth_views.LoginView.as_view(template_name='all-news/today-news.html')),
     path('logout/', auth_views.LogoutView.as_view(template_name='registration/login.html')),
     path('tinymce/',include('tinymce.urls')),
-    path('likes/', include('likes.urls')),
 ]
