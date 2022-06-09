@@ -1,15 +1,15 @@
-# U-Gram
+# Ur-Gram
 
 An Instagram-like image gallery app, generated with [Python](https://www.python.org/) version 3.8.13 for [Django](https://www.djangoproject.com/) version 4.0.5 
 
-# U-Gram
+# Ur-Gram
 #### This repo creates an Instagram-ui-inspired app with user functionalities to sign in, upload photos, see user/other profiles, follow other users & see their photos, like photos & drop comments.
 ## Author
 [Benson Langat](https://github.com/benie254)
 
 ## Description
 
-If you have used Instagram, you will find U-Gram quite similar in appearance and in most functionalities. The U-Gram app displays photos posted by different users at different times. Users can click on images to expand its view in an image details page. Users can also views the images they have posted, in the user account profile. On top of these, is a functionality to copy an image's link and share in across social platforms, a search functionality, and options to comment and/or like photos.
+If you have used Instagram, you will find Ur-Gram quite similar in appearance and in most functionalities. The Ur-Gram app displays photos posted by different users at different times. Users can click on images to expand its view in an image details page. Users can also views the images they have posted, in the user account profile. On top of these, is a functionality to copy an image's link and share in across social platforms, a search functionality, and options to comment and/or like photos.
 >The app supports `CRUD` functionalities to Create, Read, Update, and Delete images and their content/details. 
 
 
@@ -28,14 +28,14 @@ If you have used Instagram, you will find U-Gram quite similar in appearance and
    - OUTPUT: 'Navbar', 'Home page content'
    
 **2. User Action:** 
-   - INPUT:  Click : Navbar : 'U-Gram', Home-icon
+   - INPUT:  Click : Navbar : 'Ur-Gram', Home-icon
    - OUTPUT: Home page
    - OUTPUT: All Images
 
 **3. User Action:**
    - INPUT:  Click : Image object
    - OUTPUT: Redirect: Single image details page
-   - INPUT:  Click : Navbar: 'U-Gram', Home icon
+   - INPUT:  Click : Navbar: 'Ur-Gram', Home icon
    - OUTPUT: Home Page
 
 **4. User Action:**
@@ -61,8 +61,8 @@ If you have used Instagram, you will find U-Gram quite similar in appearance and
 * Open your Terminal (CTRL + ALT + T on Ubuntu/Linux). 
 * Make a destination directory in your preferred path (where you would like to clone the repo into.)
 * Run the command ``` cd yourDestinationDirectory ```
-* Run the command ``` git clone https://github.com/benie254/U-Gram.git ``` to clone the repo into your destination directory. 
-* Run the command ``` cd U-Gram ``` to move you into this repo's directory.
+* Run the command ``` git clone https://github.com/benie254/Ur-Gram.git ``` to clone the repo into your destination directory. 
+* Run the command ``` cd Ur-Gram ``` to move you into this repo's directory.
 * Run the command ``` atom . ``` for Atom or ``` code . ``` for VSCode --opens the directory in your preferred code editor. (it is okay if you use something different.)
 * Happy coding!
 
