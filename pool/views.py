@@ -33,6 +33,7 @@ def new_image(request):
 
     return render(request,'user/upload.html',{"form":form})
 
+@login_required(login_url='/accounts/register')
 def galleries(request):
     # galleries = Image.galleries()
     galleries = Image.objects.all().order_by('-published').values()
