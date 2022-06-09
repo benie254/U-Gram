@@ -87,7 +87,6 @@ INSTALLED_APPS = [
     'tinymce',
     'crispy_forms',
     'bootstrap4',
-    'likes',
     'secretballot',
 ]
 
